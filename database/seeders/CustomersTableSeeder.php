@@ -2,11 +2,11 @@
 
 namespace Database\Seeders;
 
-use App\Models\User;
+use App\Models\Customer;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
 
-class UsersTableSeeder extends Seeder
+class CustomersTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -15,9 +15,9 @@ class UsersTableSeeder extends Seeder
      */
     public function run()
     {
-        $user = User::create([
-            'name' => 'user',
-            'email' => 'user@app.com',
+        $customer = Customer::create([
+            'name' => 'customer',
+            'email' => 'customer@app.com',
             'password' => Hash::make('password'),
         ]);
 

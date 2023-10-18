@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use App\Models\User;
 use Illuminate\Database\Seeder;
+use Spatie\Permission\Models\Role;
 use Illuminate\Support\Facades\Hash;
 
 class AdminsTableSeeder extends Seeder
@@ -20,6 +21,10 @@ class AdminsTableSeeder extends Seeder
             'username' => 'admin',
             'password' => Hash::make('password'),
         ]);
+
+        $role = Role::create(['name' => 'administrator']);
+
+        $user->assignRole('administrator');
 
 
     }
