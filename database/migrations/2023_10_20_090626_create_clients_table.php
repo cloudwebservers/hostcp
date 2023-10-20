@@ -23,7 +23,7 @@ return new class extends Migration
             $table->text('state');
             $table->text('postcode');
             $table->text('country');
-            $table->string('phonenumber')->unique();
+            $table->string('mobilenumber')->unique();
             $table->text('password');
             $table->date('datecreated');
             $table->text('notes');
