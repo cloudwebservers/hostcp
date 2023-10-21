@@ -7,17 +7,13 @@
 
     <div class="content">
 
-        <div class="breadcrumb-wrapper breadcrumb-contacts">
-            <div>
-                <h1>Create New Client</h1>
-            </div>
-
-        </div>
-
-
-
         <div class="card card-default">
+
+            <div class="card-header card-header-border-bottom">
+                <h2>Create New Client</h2>
+            </div>
             <div class="card-body">
+
                 <div class="row">
 
                     <div class="col-sm-6 col-md-4">
@@ -121,6 +117,7 @@
                         </div>
 
                     </div>
+
                     <div class="col-sm-6 col-md-4">
 
 
@@ -424,6 +421,7 @@
 
 
                     </div>
+
                     <div class="col-sm-6 col-md-4">
 
                         <div class="form-group">
@@ -475,8 +473,11 @@
 
 
                     </div>
+
                 </div>
+
             </div>
+            
         </div>
 
     </div>
