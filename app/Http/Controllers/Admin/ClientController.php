@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Models\Client;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\StoreClientRequest;
 
 class ClientController extends Controller
 {
@@ -22,14 +23,18 @@ class ClientController extends Controller
      */
     public function create()
     {
-        return view('admin.clients.create');
+        $countries = json_decode(file_get_contents(resource_path('views/json/country.json')));
+        return view('admin.clients.create', compact('countries'));
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(StoreClientRequest $request)
     {
+
+        $validatedData = $request->validated();
+        $client = Client::create($validatedData);
         
     }
 
