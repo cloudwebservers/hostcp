@@ -22,14 +22,16 @@ use App\Http\Controllers\Admin\ClientController;
      Route::get('/home', [HomeController::class, 'index'])->name('home');
 
 
-        // Admin Clients
-        Route::get('/clients', [ClientController::class, 'index'])->name('clients.index');
-        Route::get('/clients/create', [ClientController::class, 'create'])->name('clients.create');
-        Route::post('/clients', [ClientController::class, 'store'])->name('clients.store');
-        Route::get('/clients/{client}', [ClientController::class, 'show'])->name('clients.show');
-        Route::get('/clients/{client}/edit', [ClientController::class, 'edit'])->name('clients.edit');
-        Route::put('/clients/{client}', [ClientController::class, 'update'])->name('clients.update');
-        Route::delete('/clients/{client}', [ClientController::class, 'destroy'])->name('clients.destroy');
+        // Admin Clients group
+        Route::controller('clients', ClientController::class)->prefix('clients')->name('clients.')->group(function () {
+            Route::get('/create', [ClientController::class, 'create'])->name('create');
+            Route::post('/', [ClientController::class, 'store'])->name('store');
+            Route::get('/{client}/edit', [ClientController::class, 'edit'])->name('edit');
+            Route::put('/{client}', [ClientController::class, 'update'])->name('update');
+            Route::delete('/{client}', [ClientController::class, 'destroy'])->name('destroy');
+        });
+
+       
         
  });
 

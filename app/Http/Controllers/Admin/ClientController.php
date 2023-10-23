@@ -30,9 +30,9 @@ class ClientController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreClientRequest $request)
+    public function store(Request $request)
     {
-
+        dd($request->all());
         $validatedData = $request->validated();
         $client = Client::create($validatedData);
         
