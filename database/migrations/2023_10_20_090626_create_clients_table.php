@@ -19,11 +19,11 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->text('password');
             $table->text('companyname')->nullable();
-            $table->text('address1');
+            $table->text('address1')->nullable();
             $table->text('address2')->nullable();
-            $table->text('city');
-            $table->text('state');
-            $table->text('postcode');
+            $table->text('city')->nullable();
+            $table->text('state')->nullable();
+            $table->text('postcode')->nullable();
             $table->text('country');
             $table->date('datecreated');
             $table->text('notes')->nullable();

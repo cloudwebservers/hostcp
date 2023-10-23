@@ -53,7 +53,7 @@
                                 <label>Address 1</label>
                                 <input type="text" tabindex="7"
                                     class="form-control @error('address1') is-invalid @enderror" name="address1"
-                                    value="{{ old('address1') }}" required>
+                                    value="{{ old('address1') }}" >
                                 @error('address1')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -76,9 +76,8 @@
                             <div class="form-group">
                                 <label>Status</label>
                                 <select name="status" class="form-control" tabindex="13">
-                                    <option value="Active">Active</option>
-                                    <option value="Inactive">Inactive</option>
-                                    <option value="Closed">Closed</option>
+                                    <option value="1">Active</option>
+                                    <option value="0">Inactive</option>
                                 </select>
                                 @error('status')
                                     <span class="invalid-feedback" role="alert">
@@ -149,7 +148,7 @@
                             <label>Postcode</label>
                             <input type="text" tabindex="12"
                                 class="form-control @error('postcode') is-invalid @enderror" name="postcode"
-                                value="{{ old('postcode') }}" required>
+                                value="{{ old('postcode') }}" >
                             @error('postcode')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
@@ -191,7 +190,7 @@
                             <label>City</label>
                             <input type="text" tabindex="9"
                                 class="form-control @error('city') is-invalid @enderror" name="city"
-                                value="{{ old('city') }}" required>
+                                value="{{ old('city') }}" >
                             @error('city')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>

@@ -30,11 +30,11 @@ class ClientController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(StoreClientRequest $request)
     {
-        dd($request->all());
         $validatedData = $request->validated();
         $client = Client::create($validatedData);
+        return redirect()->route('admin.clients.index')->with('success', 'Client created successfully');
         
     }
 

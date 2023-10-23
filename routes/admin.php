@@ -24,6 +24,7 @@ use App\Http\Controllers\Admin\ClientController;
 
         // Admin Clients group
         Route::controller('clients', ClientController::class)->prefix('clients')->name('clients.')->group(function () {
+            Route::get('/', [ClientController::class, 'index'])->name('index');
             Route::get('/create', [ClientController::class, 'create'])->name('create');
             Route::post('/', [ClientController::class, 'store'])->name('store');
             Route::get('/{client}/edit', [ClientController::class, 'edit'])->name('edit');
