@@ -13,7 +13,7 @@ class CreateInvoicesTable extends Migration
             $table->increments('id');
             $table->date('date')->nullable();
             $table->date('duedate')->nullable();
-            $table->dateTime('datepaid')->default('0000-00-00 00:00:00');
+            $table->dateTime('datepaid')->useCurrent();
             $table->unsignedInteger('user_id');
             $table->decimal('subtotal', 10, 2);
             $table->decimal('credit', 10, 2);
