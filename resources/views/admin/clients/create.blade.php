@@ -5,6 +5,16 @@
 
 @push('scripts')
     <script src='{{ asset('/js/statedropdown.js') }}'></script>
+
+    <script>
+        let mobileElement = $('.mobile-code');
+        $('select[name=country]').change(function() {
+            mobileElement.text(`+${$('select[name=country] :selected').data('mobile_code')}`);
+        });
+
+        let dialCode = $('select[name=country] :selected').data('mobile_code');
+        mobileElement.text(`+${dialCode}`);
+    </script>
 @endpush
 
 @section('content')
@@ -53,7 +63,7 @@
                                 <label>Address 1</label>
                                 <input type="text" tabindex="7"
                                     class="form-control @error('address1') is-invalid @enderror" name="address1"
-                                    value="{{ old('address1') }}" >
+                                    value="{{ old('address1') }}">
                                 @error('address1')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -65,7 +75,7 @@
                                 <label>State</label>
                                 <input type="text" tabindex="7"
                                     class="form-control @error('state') is-invalid @enderror" name="state">
-                              
+
                                 @error('state')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -148,7 +158,7 @@
                             <label>Postcode</label>
                             <input type="text" tabindex="12"
                                 class="form-control @error('postcode') is-invalid @enderror" name="postcode"
-                                value="{{ old('postcode') }}" >
+                                value="{{ old('postcode') }}">
                             @error('postcode')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
@@ -175,22 +185,31 @@
                         </div>
 
                         <div class="form-group">
+
                             <label>Mobile Number</label>
-                            <input type="text" tabindex="6"
-                                class="form-control @error('mobilenumber') is-invalid @enderror" name="mobilenumber"
-                                value="{{ old('mobilenumber') }}" required>
-                            @error('mobilenumber')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                            @enderror
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text mobile-code"></span>
+                                </div>
+                                <input type="text" tabindex="6"
+                                    class="form-control @error('mobilenumber') is-invalid @enderror" name="mobilenumber"
+                                    id="mobile" value="{{ old('mobilenumber') }}" required>
+
+                                @error('mobilenumber')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+
+
                         </div>
 
                         <div class="form-group">
                             <label>City</label>
                             <input type="text" tabindex="9"
                                 class="form-control @error('city') is-invalid @enderror" name="city"
-                                value="{{ old('city') }}" >
+                                value="{{ old('city') }}">
                             @error('city')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
